@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		637C43CE24A2C8DC00FB9EE7 /* Xcode114Linking.m in Sources */ = {isa = PBXBuildFile; fileRef = 637C43CD24A2C8DC00FB9EE7 /* Xcode114Linking.m */; };
 		637C43CF24A2C8DC00FB9EE7 /* Xcode114Linking.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 637C43CC24A2C8DC00FB9EE7 /* Xcode114Linking.h */; };
+		637C43DA24A2C91100FB9EE7 /* libcryptopp_x86_64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 637C43D624A2C91100FB9EE7 /* libcryptopp_x86_64.a */; };
+		637C43DC24A2C91100FB9EE7 /* libcryptopp_arm64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 637C43D824A2C91100FB9EE7 /* libcryptopp_arm64.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,8 @@
 		637C43C924A2C8DC00FB9EE7 /* libXcode114Linking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXcode114Linking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		637C43CC24A2C8DC00FB9EE7 /* Xcode114Linking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xcode114Linking.h; sourceTree = "<group>"; };
 		637C43CD24A2C8DC00FB9EE7 /* Xcode114Linking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Xcode114Linking.m; sourceTree = "<group>"; };
+		637C43D624A2C91100FB9EE7 /* libcryptopp_x86_64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcryptopp_x86_64.a; sourceTree = "<group>"; };
+		637C43D824A2C91100FB9EE7 /* libcryptopp_arm64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcryptopp_arm64.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				637C43DA24A2C91100FB9EE7 /* libcryptopp_x86_64.a in Frameworks */,
+				637C43DC24A2C91100FB9EE7 /* libcryptopp_arm64.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +68,18 @@
 			children = (
 				637C43CC24A2C8DC00FB9EE7 /* Xcode114Linking.h */,
 				637C43CD24A2C8DC00FB9EE7 /* Xcode114Linking.m */,
+				637C43D524A2C91100FB9EE7 /* libs */,
 			);
 			path = Xcode114Linking;
+			sourceTree = "<group>";
+		};
+		637C43D524A2C91100FB9EE7 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				637C43D624A2C91100FB9EE7 /* libcryptopp_x86_64.a */,
+				637C43D824A2C91100FB9EE7 /* libcryptopp_arm64.a */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,7 +195,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -231,7 +247,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -244,6 +260,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4FGMLE57E7;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Xcode114Linking/libs",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -256,6 +276,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4FGMLE57E7;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Xcode114Linking/libs",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
