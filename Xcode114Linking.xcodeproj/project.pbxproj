@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		635D175824A2CC590061EFF3 /* libcryptopp_universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 635D175724A2CC580061EFF3 /* libcryptopp_universal.a */; };
 		637C43CE24A2C8DC00FB9EE7 /* Xcode114Linking.m in Sources */ = {isa = PBXBuildFile; fileRef = 637C43CD24A2C8DC00FB9EE7 /* Xcode114Linking.m */; };
 		637C43CF24A2C8DC00FB9EE7 /* Xcode114Linking.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 637C43CC24A2C8DC00FB9EE7 /* Xcode114Linking.h */; };
-		637C43DA24A2C91100FB9EE7 /* libcryptopp_x86_64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 637C43D624A2C91100FB9EE7 /* libcryptopp_x86_64.a */; };
-		637C43DC24A2C91100FB9EE7 /* libcryptopp_arm64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 637C43D824A2C91100FB9EE7 /* libcryptopp_arm64.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		635D175724A2CC580061EFF3 /* libcryptopp_universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcryptopp_universal.a; sourceTree = "<group>"; };
 		637C43C924A2C8DC00FB9EE7 /* libXcode114Linking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXcode114Linking.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		637C43CC24A2C8DC00FB9EE7 /* Xcode114Linking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xcode114Linking.h; sourceTree = "<group>"; };
 		637C43CD24A2C8DC00FB9EE7 /* Xcode114Linking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Xcode114Linking.m; sourceTree = "<group>"; };
@@ -39,8 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				637C43DA24A2C91100FB9EE7 /* libcryptopp_x86_64.a in Frameworks */,
-				637C43DC24A2C91100FB9EE7 /* libcryptopp_arm64.a in Frameworks */,
+				635D175824A2CC590061EFF3 /* libcryptopp_universal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +77,7 @@
 			children = (
 				637C43D624A2C91100FB9EE7 /* libcryptopp_x86_64.a */,
 				637C43D824A2C91100FB9EE7 /* libcryptopp_arm64.a */,
+				635D175724A2CC580061EFF3 /* libcryptopp_universal.a */,
 			);
 			path = libs;
 			sourceTree = "<group>";
@@ -89,6 +89,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 637C43D224A2C8DC00FB9EE7 /* Build configuration list for PBXNativeTarget "Xcode114Linking" */;
 			buildPhases = (
+				635D175924A2CC780061EFF3 /* lipo (workaround) */,
 				637C43C524A2C8DC00FB9EE7 /* Sources */,
 				637C43C624A2C8DC00FB9EE7 /* Frameworks */,
 				637C43C724A2C8DC00FB9EE7 /* CopyFiles */,
@@ -132,6 +133,27 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		635D175924A2CC780061EFF3 /* lipo (workaround) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "lipo (workaround)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcrun lipo -create $SRCROOT/Xcode114Linking/libs/libcryptopp_arm64.a $SRCROOT/Xcode114Linking/libs/libcryptopp_x86_64.a -output $SRCROOT/Xcode114Linking/libs/libcryptopp_universal.a\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		637C43C524A2C8DC00FB9EE7 /* Sources */ = {
